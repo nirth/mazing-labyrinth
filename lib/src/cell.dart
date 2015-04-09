@@ -25,6 +25,6 @@ class Cell {
   Cell get right => _right;
   set right(Cell value) => _right = value;
 
-  
+
   String toString() => "Cell x=${_x} y=${_y}";
 }
