@@ -1,11 +1,11 @@
 name: labyrinth
 description: >
   A library useful for applications or for sharing on pub.dartlang.org.
-version: 0.0.1
+version: 0.0.2
 author: David Grigoryan <nirth.furzahad@gmail.com>
 dependencies:
   image: ">=1.1.24 <2.0.0"
   log4dart: any
 dev_dependencies:
-  unittest: any
-  matched: any
+  test: ">=0.12.0 <0.13.0"
+#  matcher: ">=0.12.0 <0.13.0"
