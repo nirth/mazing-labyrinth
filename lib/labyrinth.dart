@@ -6,7 +6,12 @@
 /// This is an awesome library. More dartdocs go here.
 library labyrinth;
 
-part 'src/cell.dart';
+import 'dart:collection';
+import 'dart:math';
+
+part 'labyrinth/cell.dart';
+part 'labyrinth/grid.dart';
+
 
 // TODO: Export any libraries intended for clients of this package.
 
