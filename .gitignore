@@ -5,5 +5,5 @@
 build/
 packages
 pubspec.lock
-*.iml
+labyrinth.iml
 
