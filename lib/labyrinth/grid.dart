@@ -4,10 +4,10 @@ class Grid extends IterableBase<Cell> {
   Random _random;
   List<List<Cell>> _grid;
 
-  Grid(this._rows, this._columns) {
+  Grid(int this._numRows, int this._numColumns) {
     _random = new Random();
 
-    _grid = createGrid(rows, columns);
+    _grid = createGrid(numRows, numColumns);
     configureCells(_grid);
   }
 
@@ -39,17 +39,17 @@ class Grid extends IterableBase<Cell> {
   }
 
   Cell cellAt(row, column) {
-    if (row < 0 || row >= rows) {
+    if (row < 0 || row >= numRows) {
       return null;
     }
-    if (column < 0 || column >= columns) {
+    if (column < 0 || column >= numColumns) {
       return null;
     }
     return _grid[row][column];
   }
 
-  Cell get randomCell => cellAt(_random.nextInt(rows - 1), _random.nextInt(columns - 1));
-  int get size => rows * columns;
+  Cell get randomCell => cellAt(_random.nextInt(numRows - 1), _random.nextInt(numColumns - 1));
+  int get size => numRows * numColumns;
   int _numRows;
   int get numRows => _numRows;
   set numRows(int value) => _numRows = value;
