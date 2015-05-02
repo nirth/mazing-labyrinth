@@ -114,14 +114,14 @@ void gridSpecs() {
     });
 
     test('report correct rows and columns count', () {
-      expect(oneByOne.rows, 1);
-      expect(oneByOne.columns, 1);
+      expect(oneByOne.numRows, 1);
+      expect(oneByOne.numColumns, 1);
 
-      expect(twoByTwo.rows, 2);
-      expect(twoByTwo.columns, 2);
+      expect(twoByTwo.numRows, 2);
+      expect(twoByTwo.numColumns, 2);
 
-      expect(fiveBySeven.rows, 5);
-      expect(fiveBySeven.columns, 7);
+      expect(fiveBySeven.numRows, 5);
+      expect(fiveBySeven.numColumns, 7);
     });
 
     test('report correct size', () {
@@ -159,29 +159,38 @@ void gridSpecs() {
     test('iterate over it\'s cells row by row', () {
       int count = 0;
 
-      fiveBySeven.forEach((cell) {
+      fiveBySeven.cells.forEach((cell) {
         count += 1;
       });
 
-      expect(count, 35);
+      expect(count, fiveBySeven.size);
     });
 
     test('iterate over it\'s cells in correct order', () {
       int row = 0;
       int column = 0;
 
-      fiveBySeven.forEach((cell) {
+      fiveBySeven.cells.forEach((cell) {
         expect(cell.row, row);
         expect(cell.column, column);
 
         column += 1;
 
-        if (column >= fiveBySeven.columns) {
+        if (column >= fiveBySeven.numColumns) {
           column = 0;
           row += 1;
         }
       });
     });
 
+    test('iterate over it\'s rows', () {
+      int count = 0;
+
+      fiveBySeven.rows.forEach((List<Cell> row) {
+        count += 1;
+      });
+
+      expect(count, fiveBySeven.numRows);
+    });
   });
 }

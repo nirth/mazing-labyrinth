@@ -1,6 +1,6 @@
 part of labyrinth;
 
-class Grid extends IterableBase<Cell> {
+class Grid {
   Random _random;
   List<List<Cell>> _grid;
 
@@ -9,6 +9,9 @@ class Grid extends IterableBase<Cell> {
 
     _grid = createGrid(numRows, numColumns);
     configureCells(_grid);
+
+    _rows = new Rows(this);
+    _cells = new Cells(this);
   }
 
   List<List<Cell>> createGrid(int rows, int columns) {
@@ -50,6 +53,7 @@ class Grid extends IterableBase<Cell> {
 
   Cell get randomCell => cellAt(_random.nextInt(numRows - 1), _random.nextInt(numColumns - 1));
   int get size => numRows * numColumns;
+
   int _numRows;
   int get numRows => _numRows;
   set numRows(int value) => _numRows = value;
@@ -58,16 +62,40 @@ class Grid extends IterableBase<Cell> {
   int get numColumns => _numColumns;
   set numColumns(int value) => _numColumns = value;
 
+  Cells _cells;
+  Cells get cells => _cells;
 
-  Iterator<Cell> get iterator => new GridIterator(this);
+  Rows _rows;
+  Rows get rows => _rows;
+
 }
 
-class GridIterator extends Iterator<Cell> {
+class Cells extends IterableBase<Cell> {
+  Grid grid;
+
+  Cells(Grid this.grid) {
+
+  }
+
+  Iterator<Cell> get iterator => new CellIterator(grid);
+}
+
+class Rows extends IterableBase<List<Cell>> {
+  Grid grid;
+
+  Rows(Grid this.grid) {
+
+  }
+
+  Iterator<List<Cell>> get iterator => new RowIterator(grid);
+}
+
+class CellIterator extends Iterator<Cell> {
   Grid grid;
   int row;
   int column;
 
-  GridIterator(Grid this.grid) {
+  CellIterator(Grid this.grid) {
     row = 0;
     column = 0;
   }
@@ -78,7 +106,7 @@ class GridIterator extends Iterator<Cell> {
 
     column += 1;
 
-    if (column >= grid.columns) {
+    if (column >= grid.numColumns) {
       column = 0;
       row += 1;
     }
@@ -88,6 +116,8 @@ class GridIterator extends Iterator<Cell> {
 
   Cell _current;
   Cell get current => _current;
+}
+
 class RowIterator extends Iterator<List<Cell>> {
   Grid grid;
   int row;
