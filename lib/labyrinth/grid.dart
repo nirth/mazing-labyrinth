@@ -50,14 +50,14 @@ class Grid extends IterableBase<Cell> {
 
   Cell get randomCell => cellAt(_random.nextInt(rows - 1), _random.nextInt(columns - 1));
   int get size => rows * columns;
+  int _numRows;
+  int get numRows => _numRows;
+  set numRows(int value) => _numRows = value;
 
-  int _rows;
-  int get rows => _rows;
-  set rows(int value) => _rows = value;
+  int _numColumns;
+  int get numColumns => _numColumns;
+  set numColumns(int value) => _numColumns = value;
 
-  int _columns;
-  int get columns => _columns;
-  set columns(int value) => _columns = value;
 
   Iterator<Cell> get iterator => new GridIterator(this);
 }
