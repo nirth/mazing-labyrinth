@@ -88,5 +88,26 @@ class GridIterator extends Iterator<Cell> {
 
   Cell _current;
   Cell get current => _current;
+class RowIterator extends Iterator<List<Cell>> {
+  Grid grid;
+  int row;
 
+  RowIterator(Grid this.grid) {
+    row = 0;
+  }
+
+  bool moveNext() {
+    if (row < grid.numRows) {
+      _current = grid._grid[row];
+    } else {
+      _current = null;
+    }
+
+    row += 1;
+
+    return _current != null;
+  }
+
+  List<Cell> _current;
+  List<Cell> get current => _current;
 }
