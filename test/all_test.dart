@@ -46,6 +46,11 @@ void cellSpecs() {
       oneByZero.unlinkAll();
       zeroByOne.unlinkAll();
       oneByOne.unlinkAll();
+
+      zeroByZero.north = null;
+      zeroByZero.east = null;
+      zeroByZero.south = null;
+      zeroByZero.west = null;
     });
 
     test('be initialized at correct position', () {
@@ -94,6 +99,13 @@ void cellSpecs() {
       expect(zeroByOne.linked(zeroByZero), false);
     });
 
+    test('have an ability to count it\'s neighbours', () {
+      zeroByZero.east = zeroByOne;
+      zeroByZero.south = oneByZero;
+
+      expect(zeroByZero.neighbours.length, 2);
+    });
+
     test('have toString method', () {
       expect(twoByTwo.toString(), contains('2'));
       expect(tenByTen.toString(), contains('10'));
@@ -106,11 +118,15 @@ void cellSpecs() {
 void gridSpecs() {
   group('Grids should', () {
     Grid oneByOne, twoByTwo, fiveBySeven;
+    Cell threeByThree, fourBySix;
 
     setUp(() {
       oneByOne = new Grid(1, 1);
       twoByTwo = new Grid(2, 2);
       fiveBySeven = new Grid(5, 7);
+
+      threeByThree = fiveBySeven.cellAt(3, 3);
+      fourBySix = fiveBySeven.cellAt(4, 6);
     });
 
     test('report correct rows and columns count', () {
@@ -191,6 +207,31 @@ void gridSpecs() {
       });
 
       expect(count, fiveBySeven.numRows);
+    });
+
+    test('tell cell about north neighbour', () {
+      expect(threeByThree.north.row, 2);
+      expect(threeByThree.north.column, 3);
+    });
+
+    test('tell cell about west neighbour', () {
+      expect(threeByThree.west.row, 3);
+      expect(threeByThree.west.column, 2);
+    });
+
+    test('tell cell about south neighbour', () {
+      expect(threeByThree.south.row, 4);
+      expect(threeByThree.south.column, 3);
+    });
+
+    test('tell cell about east neighbour', () {
+      expect(threeByThree.east.row, 3);
+      expect(threeByThree.east.column, 4);
+    });
+
+    test('tell cell that it doesn\'s have a neighbour when on edge of map', () {
+      expect(fourBySix.east, null);
+      expect(fourBySix.south, null);
     });
   });
 }

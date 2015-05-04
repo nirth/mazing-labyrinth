@@ -9,10 +9,8 @@ library labyrinth;
 import 'dart:collection';
 import 'dart:math';
 
-part 'labyrinth/cell.dart';
-part 'labyrinth/grid.dart';
+import 'package:log4dart/log4dart.dart';
 
-
-// TODO: Export any libraries intended for clients of this package.
-
-//export 'src/labyrinth_base.dart';
+part 'labyrinth/data/cell.dart';
+part 'labyrinth/data/grid.dart';
+part 'labyrinth/binarytree.dart';
