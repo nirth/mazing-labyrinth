@@ -91,11 +91,6 @@ class Grid {
    * An Iterable collection of all rows.
    */
   Rows get rows => _rows;
-
-
-  String toAscii() {
-    return new Ascii().render(this);
-  }
 }
 
 class Cells extends IterableBase<Cell> {
