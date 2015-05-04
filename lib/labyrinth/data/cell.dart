@@ -63,10 +63,10 @@ class Cell {
 
   Set<Cell> get neighbours {
     Set<Cell> result = new Set<Cell>();
-    if (north != null) result.add(north);
-    if (south != null) result.add(south);
-    if (east != null) result.add(east);
-    if (west != null) result.add(west);
+    if (hasNorth) result.add(north);
+    if (hasSouth) result.add(south);
+    if (hasWest) result.add(west);
+    if (hasEast) result.add(east);
 
     return result;
   }
