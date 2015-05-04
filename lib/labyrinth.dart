@@ -15,3 +15,6 @@ part 'labyrinth/data/cell.dart';
 part 'labyrinth/data/grid.dart';
 part 'labyrinth/binarytree.dart';
 part 'labyrinth/sidewinder.dart';
+part 'labyrinth/rendering/renderer.dart';
+part 'labyrinth/rendering/ascii.dart';
+part 'labyrinth/rendering/png.dart';
