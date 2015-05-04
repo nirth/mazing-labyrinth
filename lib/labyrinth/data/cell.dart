@@ -52,6 +52,11 @@ class Cell {
     return result;
   }
 
+  bool get hasNorth => _north != null;
+  bool get hasSouth => _south != null;
+  bool get hasWest => _west != null;
+  bool get hasEast => _east != null;
+
   Cell _north;
   Cell get north => _north;
   set north(Cell value) => _north = value;
