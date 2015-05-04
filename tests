@@ -1,0 +1,3 @@
+#!/bin/bash
+
+dart --checked --package-root=./packages test/all_test.dart
