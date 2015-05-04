@@ -24,6 +24,25 @@ class Cell {
     return this;
   }
 
+  Cell linkNorth() {
+    if (hasNorth) link(north);
+    return this;
+  }
+
+  Cell linkSouth() {
+    if (hasSouth) link(south);
+    return this;
+  }
+
+  Cell linkWest() {
+    if (hasWest) link(west);
+    return this;
+  }
+
+  Cell linkEast() {
+    if (hasEast) link(east);
+    return this;
+  }
   Cell unlink(Cell cell, {bidirectional: true}) {
     _links.remove(cell);
     if (bidirectional) {
