@@ -14,3 +14,4 @@ import 'package:log4dart/log4dart.dart';
 part 'labyrinth/data/cell.dart';
 part 'labyrinth/data/grid.dart';
 part 'labyrinth/binarytree.dart';
+part 'labyrinth/sidewinder.dart';
