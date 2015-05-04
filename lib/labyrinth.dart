@@ -10,6 +10,7 @@ import 'dart:collection';
 import 'dart:math';
 
 import 'package:log4dart/log4dart.dart';
+import 'package:image/image.dart';
 
 part 'labyrinth/data/cell.dart';
 part 'labyrinth/data/grid.dart';
