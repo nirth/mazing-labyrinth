@@ -4,7 +4,6 @@ class Cell {
   Map<Cell, bool> _links;
 
   Cell(this._row, this._column) {
-
     _links = new HashMap<Cell, bool>();
   }
 
@@ -21,6 +20,26 @@ class Cell {
     if (bidirectional) {
       cell.link(this, bidirectional: false);
     }
+    return this;
+  }
+
+  Cell linkNorth() {
+    if (hasNorth) link(north);
+    return this;
+  }
+
+  Cell linkSouth() {
+    if (hasSouth) link(south);
+    return this;
+  }
+
+  Cell linkWest() {
+    if (hasWest) link(west);
+    return this;
+  }
+
+  Cell linkEast() {
+    if (hasEast) link(east);
     return this;
   }
 
@@ -44,13 +63,18 @@ class Cell {
 
   Set<Cell> get neighbours {
     Set<Cell> result = new Set<Cell>();
-    if (north != null) result.add(north);
-    if (south != null) result.add(south);
-    if (east != null) result.add(east);
-    if (west != null) result.add(west);
+    if (hasNorth) result.add(north);
+    if (hasSouth) result.add(south);
+    if (hasWest) result.add(west);
+    if (hasEast) result.add(east);
 
     return result;
   }
+
+  bool get hasNorth => _north != null;
+  bool get hasSouth => _south != null;
+  bool get hasWest => _west != null;
+  bool get hasEast => _east != null;
 
   Cell _north;
   Cell get north => _north;
