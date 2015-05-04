@@ -1,14 +1,20 @@
 import 'dart:io';
+import 'dart:math';
 import '../lib/labyrinth.dart';
 
 void main(List<String> arguments) {
-  Grid grid = new Grid(20, 20);
-  grid = BinaryTree.start(grid);
+  stdout.write('Binary Tree\n');
+  stdout.write(binaryTree(12, 12));
+  stdout.write('Sidewinder\n');
+  stdout.write(sidewinder(12, 12));
+}
 
-  grid.toAscii();
+String binaryTree(int rows, int columns) {
+  return BinaryTree.start(new Grid(rows, columns)).toAscii() + '\n';
+}
 
-  stdout.write('Grid\n');
-  stdout.write(grid.toAscii());
+String sidewinder(int rows, int columns) {
+  return Sidewinder.start(new Grid(rows, columns)).toAscii() + '\n';
 }
 
 
