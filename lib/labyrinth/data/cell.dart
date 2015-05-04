@@ -76,6 +76,11 @@ class Cell {
   bool get hasWest => _west != null;
   bool get hasEast => _east != null;
 
+  bool get linkedNorth => hasNorth && linked(north);
+  bool get linkedSouth => hasSouth && linked(south);
+  bool get linkedWest => hasWest && linked(west);
+  bool get linkedEast => hasEast && linked(east);
+
   Cell _north;
   Cell get north => _north;
   set north(Cell value) => _north = value;
