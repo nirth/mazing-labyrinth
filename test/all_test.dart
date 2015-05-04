@@ -46,6 +46,11 @@ void cellSpecs() {
       oneByZero.unlinkAll();
       zeroByOne.unlinkAll();
       oneByOne.unlinkAll();
+
+      zeroByZero.north = null;
+      zeroByZero.east = null;
+      zeroByZero.south = null;
+      zeroByZero.west = null;
     });
 
     test('be initialized at correct position', () {
@@ -92,6 +97,13 @@ void cellSpecs() {
 
       expect(zeroByZero.linked(zeroByOne), false);
       expect(zeroByOne.linked(zeroByZero), false);
+    });
+
+    test('have an ability to count it\'s neighbours', () {
+      zeroByZero.east = zeroByOne;
+      zeroByZero.south = oneByZero;
+
+      expect(zeroByZero.neighbours.length, 2);
     });
 
     test('have toString method', () {
