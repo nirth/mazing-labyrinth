@@ -4,7 +4,6 @@ class Cell {
   Map<Cell, bool> _links;
 
   Cell(this._row, this._column) {
-
     _links = new HashMap<Cell, bool>();
   }
 
@@ -43,6 +42,7 @@ class Cell {
     if (hasEast) link(east);
     return this;
   }
+
   Cell unlink(Cell cell, {bidirectional: true}) {
     _links.remove(cell);
     if (bidirectional) {
