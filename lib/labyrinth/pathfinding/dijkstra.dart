@@ -1,7 +1,7 @@
 part of labyrinth;
 
 class Dijkstra {
-  static Distances distances(Cell cell) {
+  Distances distances(Cell cell) {
     Distances result = new Distances(cell);
     var frontier = [cell];
 
