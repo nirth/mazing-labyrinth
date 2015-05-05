@@ -71,6 +71,8 @@ class Cell {
     return result;
   }
 
+  Cell get randomNeighbour => neighbours[Random.nexInt(neighbours.length)];
+
   bool get hasNorth => _north != null;
   bool get hasSouth => _south != null;
   bool get hasWest => _west != null;
