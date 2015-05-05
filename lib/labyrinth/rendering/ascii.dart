@@ -1,6 +1,12 @@
 part of labyrinth;
 
 class Ascii extends Renderer<String> {
+  Distances _distances;
+
+  Ascii({distances: null}) {
+    _distances = distances;
+  }
+
   String firstLine(Grid grid) => "+${'---+' * grid.numColumns}\n";
 
   String row(List<Cell> r) {
@@ -15,12 +21,27 @@ class Ascii extends Renderer<String> {
     return result;
   }
 
+  String cellBody(Cell cell) {
+    String result;
+    if (_distances == null) {
+      result = "${cell.row.toRadixString(32)}x${cell.column.toRadixString(32)}";
+    } else {
+      if (_distances[cell] == -1) {
+        result = '   ';
+      } else {
+        result = ' ${_distances[cell].toRadixString(36)} ';
+      }
+    }
+
+    return result;
+  }
+
   String cellTop(Cell c) {
     if (c == null) {
       c = new Cell(-1, -1);
     }
 
-    String body = '   ';
+    String body = '${cellBody(c)}';
     String eastBoundary = c.linked(c.east) ? ' ' : '|';
     return "${body}${eastBoundary}";
   }
