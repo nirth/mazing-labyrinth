@@ -19,3 +19,6 @@ part 'labyrinth/sidewinder.dart';
 part 'labyrinth/rendering/renderer.dart';
 part 'labyrinth/rendering/ascii.dart';
 part 'labyrinth/rendering/png.dart';
+
+part 'labyrinth/pathfinding/distances.dart';
+part 'labyrinth/pathfinding/dijkstra.dart';
