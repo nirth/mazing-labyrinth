@@ -44,7 +44,6 @@ class Distances {
           current = linkedCell;
         }
       });
-
     }
     return breadcrumbs;
   }
