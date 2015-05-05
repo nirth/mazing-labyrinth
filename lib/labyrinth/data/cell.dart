@@ -97,6 +97,5 @@ class Cell {
   Cell get east => _east;
   set east(Cell value) => _east = value;
 
-
-  String toString() => "Cell row=${row} column=${column}";
+  String toString() => "[Cell row=${row} column=${column}]";
 }
