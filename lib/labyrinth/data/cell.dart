@@ -61,8 +61,8 @@ class Cell {
 
   Iterable<Cell> get links => _links.keys;
 
-  Set<Cell> get neighbours {
-    Set<Cell> result = new Set<Cell>();
+  List<Cell> get neighbours {
+    List<Cell> result = new List<Cell>();
     if (hasNorth) result.add(north);
     if (hasSouth) result.add(south);
     if (hasWest) result.add(west);
