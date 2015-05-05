@@ -9,9 +9,11 @@ import '../lib/labyrinth.dart';
 part 'cell_specs.dart';
 part 'cell_links_specs.dart';
 part 'grid_specs.dart';
+part 'dijkstra_specs.dart';
 
 main() {
   cellSpecs();
   cellLinksSpecs();
   gridSpecs();
+  dijkstraSpecs();
 }
