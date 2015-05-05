@@ -61,8 +61,8 @@ class Cell {
 
   Iterable<Cell> get links => _links.keys;
 
-  Set<Cell> get neighbours {
-    Set<Cell> result = new Set<Cell>();
+  List<Cell> get neighbours {
+    List<Cell> result = new List<Cell>();
     if (hasNorth) result.add(north);
     if (hasSouth) result.add(south);
     if (hasWest) result.add(west);
@@ -70,6 +70,8 @@ class Cell {
 
     return result;
   }
+
+  Cell get randomNeighbour => neighbours[Random.nexInt(neighbours.length)];
 
   bool get hasNorth => _north != null;
   bool get hasSouth => _south != null;
@@ -97,6 +99,5 @@ class Cell {
   Cell get east => _east;
   set east(Cell value) => _east = value;
 
-
-  String toString() => "Cell row=${row} column=${column}";
+  String toString() => "[Cell row=${row} column=${column}]";
 }

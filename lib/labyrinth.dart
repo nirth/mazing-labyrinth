@@ -14,8 +14,14 @@ import 'package:image/image.dart';
 
 part 'labyrinth/data/cell.dart';
 part 'labyrinth/data/grid.dart';
+part 'labyrinth/data/utils.dart';
+
 part 'labyrinth/binarytree.dart';
 part 'labyrinth/sidewinder.dart';
+
 part 'labyrinth/rendering/renderer.dart';
 part 'labyrinth/rendering/ascii.dart';
 part 'labyrinth/rendering/png.dart';
+
+part 'labyrinth/pathfinding/distances.dart';
+part 'labyrinth/pathfinding/dijkstra.dart';
